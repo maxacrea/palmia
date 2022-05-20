@@ -1,0 +1,65 @@
+.woocommerce-cart-form {
+    .product-name {
+        font-size: 2.2rem;
+        line-height: 1.7rem;
+        margin-bottom: 15px;
+    }
+    .product-price {
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+        @apply font-medium text-black mb-8;
+    }
+    .product-quantity {
+        input {
+            @apply rounded-sm my-10;
+            height: 5rem;
+            background-color: #ededed;
+            min-width: 60px;
+            font-size: 2rem;
+        }
+    }
+    .cs-remove {
+        display: block;
+        height: 2.4rem;
+        width: 2.4rem;
+    }
+    .product-thumbnail {
+        overflow: hidden;
+        max-height: 200px;
+        & + div {
+            flex: auto;
+        }
+    }
+    .product-subtotal {
+        font-size: 2.6rem;
+        line-height: 2rem;
+        @apply font-semibold;
+    }
+    .cart_item {
+        margin-bottom: 2.3rem;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 3.6rem;
+        @apply font-normal text-center;
+    }
+
+    .cs-actions {
+        .input-text {
+            height: 4rem;
+            flex: auto;
+            border: none;
+            border-radius: 0;
+            @apply px-4;
+        }
+        button {
+            background-color: white;
+            border: none;
+            @apply text-primary;
+        }
+        .cs-btn-update {
+            @apply text-right bg-none text-white uppercase rounded-md py-3 bg-primary px-4 my-10;
+        }
+    }
+}

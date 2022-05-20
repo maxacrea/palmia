@@ -1,0 +1,52 @@
+.sec-head {
+  h2 {
+    margin-bottom: 6rem;
+  }
+}
+.sec-mag {
+  @apply bg-gray-100 pt-24 pb-32;
+  margin-bottom: 0 !important;
+}
+.mag {
+  @apply h-full flex bg-white drop-shadow;
+  .mag-thumb {
+    @apply h-full;
+  }
+  .time {
+    font-size: 2.2rem;
+    line-height: 4rem;
+  }
+  h3 {
+    margin-bottom: 3rem;
+    margin-top: 3.0rem;
+    @apply font-medium;
+  }
+  p {
+    font-size: 1.6rem;
+    line-height: 3rem;
+  }
+}
+
+.mag-view-lg {
+  h3 {
+    font-size: 3.2rem;
+    line-height: 5rem;
+  }
+}
+
+.mag-view {
+  @apply p-16;
+  h3 {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+  a.more {
+    margin-top: 2rem;
+  }
+}

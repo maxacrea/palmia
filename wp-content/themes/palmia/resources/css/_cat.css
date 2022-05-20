@@ -1,0 +1,81 @@
+.cs-head {
+  flex: inherit;
+     p {
+         font-size: 1.8rem;
+         line-height: 2.5rem;
+     }
+    h2 {
+      @apply relative flex flex-col items-end font-bold text-dark;
+      font-size: 5rem;
+      &:before {
+        content: "";
+        position: absolute;
+        height: 0.1rem;
+        @apply bg-dark;
+        top: 3rem;
+        left: 0;
+        width: 100%;
+      }
+      span {
+          @apply relative bg-white font-light text-4xl uppercase inline-block pl-8;
+        line-height: 6rem !important;
+      }
+    }
+}
+
+.cs-absolute {
+  @apply absolute h-full w-full flex items-center justify-end;
+  .cs-head {
+    @apply w-6/12 mt-6 py-24 px-32 bg-light flex flex-col items-end relative;
+    > * {
+      @apply z-20;
+    }
+    &:after {
+      content: "";
+      @apply h-full -left-12 absolute -top-12 w-full bg-white z-0;
+    }
+    &::before{
+      content: "";
+      @apply h-full left-0 absolute top-0 w-full bg-light z-10;
+    }
+    h2 span {
+      @apply bg-light;
+    }
+  }
+}
+
+.item-sm {
+  @apply w-full bg-light;
+  height: 30rem;
+}
+.bordered-light {
+  position: relative;
+  @apply h-full w-full pt-16 pr-20;
+  > * {
+    @apply relative z-10;
+  }
+  &:after {
+    content: "";
+    @apply h-full left-20 bottom-12 absolute top-0 right-0 bg-light;
+  }
+}
+
+.bordered-light-left {
+  position: relative;
+  &:after {
+    content: "";
+    @apply right-0 bottom-0 absolute top-12 left-0 bg-light;
+  }
+}
+
+.cs-rows-2col {
+  @apply flex w-full pt-16 gap-16 pb-12;
+  position: relative;
+  > * {
+    @apply z-10 relative;
+  }
+  &::after {
+    content: "";
+    @apply absolute -left-32 bg-light top-32 right-0 bottom-0;
+  }
+}

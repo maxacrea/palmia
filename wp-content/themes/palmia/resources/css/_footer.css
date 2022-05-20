@@ -1,0 +1,63 @@
+.site-footer {
+  @apply  py-40 bg-gray-50;
+  .payment {
+    background-color: #f7f7f7;
+  }
+}
+.reassurance {
+  @apply  flex items-center justify-around gap-32 mb-40;
+  .item {
+    @apply font-semibold text-center items-center flex flex-col;
+    max-width: 22rem;
+    font-size: 2.4rem;
+    line-height: 3rem;
+    svg {
+      margin-bottom: 1rem;
+    }
+  }
+}
+.links-group{
+  @apply gap-40 py-16 justify-between;
+  > div {
+    @apply max-w-lg;
+  }
+  p {
+    font-size: 1.8rem;
+    line-height: 3.8rem;
+  }
+  h4 {
+    @apply font-bold uppercase mb-8;
+    font-size: 2.4rem;
+    line-height: 4.5rem;
+  }
+  .menu-col {
+    @apply list-none mb-0;
+    li {
+      @apply uppercase;
+      font-size: 1.6rem;
+      line-height: 4.5rem;
+      a{
+        color: inherit;
+        @apply hover:underline hover:decoration-light hover:text-primary;
+      }
+    }
+  }
+}
+.socials {
+  h4 {
+    font-size: 2.5rem;
+    line-height: 3.8rem;
+    @apply font-light;
+  }
+  .actions {
+    margin-top: 2rem;
+  }
+}
+.copyright {
+  @apply py-10 text-gray-400 text-center;
+  font-size: 1.6rem;
+  line-height: 3.8rem;
+  a{
+    @apply text-primary;
+  }
+}

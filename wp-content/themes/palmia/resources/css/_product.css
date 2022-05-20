@@ -1,0 +1,237 @@
+.product-view {
+  @apply relative text-dark pt-6 pl-14 pb-6;
+  .thumb {
+    @apply drop-shadow-md;
+  }
+}
+.product-view-lg {
+  margin-bottom: 40px;
+  @apply relative;
+  &:before {
+    content: "";
+    @apply bg-light absolute w-full;
+    height: 450px;
+    max-height: 84%;
+    left: -20px;
+    top: -20px;
+  }
+  .cs-relative {
+    @apply z-10 relative;
+  }
+  .cs-product-foot {
+    img {
+      max-width: 100%;
+    }
+  }
+  .product-title {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    margin-top: 10px;
+    margin-bottom: 0;
+    @apply font-normal;
+  }
+
+  .price {
+    @apply font-bold text-black;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    del {
+      @apply text-gray-400 pr-3;
+      font-weight: normal;
+      font-size: 1.8rem;
+    }
+    ins {
+      text-decoration: none;
+    }
+  }
+}
+
+
+.cs-product-foot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  @apply flex items-start justify-between px-6 pt-6;
+}
+
+.product-view .actions {
+  display: none;
+}
+.product-view:hover .actions {
+  @apply flex;
+}
+
+.product-view .caption {
+  @apply relative pr-14;
+}
+.product-view .price {
+  @apply font-bold;
+  color: black;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+.product-view h3 {
+  line-height: 2.2rem;
+  @apply pt-6 pb-1;
+}
+.product-view h3 a {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  @apply text-dark mt-4 mb-4;
+}
+.product-view .content {
+  @apply relative -mr-14;
+}
+.product-view img {
+  width: 100%;
+}
+.product-view:before {
+  content: "";
+  @apply bg-light absolute top-0 left-0 bottom-0 w-full;
+}
+
+
+.list-product {
+  @apply flex;
+  &.blue-bg {
+    > div:nth-child(even) {
+      .product-view::before {
+        content: "";
+        @apply bg-green-50;
+      }
+    }
+  }
+}
+.tabs-nav {
+  a {
+    font-size: 2.2rem;
+    line-height: 3rem;
+    @apply text-gray-300 font-bold;
+    &.active {
+      @apply text-dark;
+    }
+  }
+}
+.product-details {
+  .product_title {
+    @apply text-dark font-medium mb-8;
+    font-size: 2.8rem;
+    line-height: 3.8rem;
+  }
+  .product_meta {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    a{
+      font: inherit;
+      @apply border-b border-gray-400;
+    }
+  }
+}
+.woocommerce {
+  span.onsale {
+    @apply absolute top-0 right-0 font-semibold z-10 m-2 py-2 px-4 bg-dark rounded-none;
+    color: #12ff00;
+    font-size: 1.4rem;
+    left: unset;
+  }
+  .cs-single-content {
+    span.onsale {
+      right: unset;
+      left: 0;
+      font-size: 1.8rem;
+    }
+  }
+  form.cart {
+    @apply mt-32 flex items-center;
+    > div {
+      @apply h-full;
+    }
+    .single_add_to_cart_button {
+      @apply text-white uppercase font-bold py-6 px-8;
+      font-size: 1.8rem;
+      background-color: #77D090;
+    }
+    input {
+      @apply border border-green-400 mr-4 py-4 h-full;
+      font-size: 1.8rem;
+      border-radius: 5px;
+    }
+  }
+  form.cart {
+    align-items: start;
+    display: flex;
+    margin-top: 3rem;
+  }
+}
+
+.cs-single-content {
+  @apply relative;
+  padding-top: 10rem;
+   .product-details {
+      .price {
+        font-size: 5.2rem !important;
+        line-height: 6rem;
+        @apply mt-3 flex font-semibold text-black !important;
+        del {
+          order: 2;
+          @apply font-light pl-8;
+        }
+        ins {
+          order: 1;
+          text-decoration: none;
+        }
+      }
+   }
+}
+
+.single-product-tabs {
+  margin-top: 5rem;
+  .cs-tab-btn {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+    @apply uppercase mb-1 mt-8 text-black flex items-center;
+    .icon {
+      flex: 0 0 15px;
+      margin-right: 10px;
+    }
+  }
+  p, td{
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    @apply text-dark;
+  }
+}
+
+.cs-entretien {
+  @apply my-8;
+  h4 {
+    font-size: 1.6rem;
+    @apply font-bold text-black mb-2;
+  }
+  h3 {
+    font-size: 1.8rem;
+    @apply font-semibold mb-3;
+  }
+}
+
+p {
+  a {
+    text-decoration: none;
+    @apply border-b border-gray-400;
+  }
+}
+
+.cs-content-header {
+  position: relative;
+  @apply pb-20;
+  &::before {
+     content: "";
+     bottom: 0;
+     width: 100vw;;
+     top: -10rem;
+     left: calc(100% + ((100vw - 1280px) / 2) - 100vw);
+     position: absolute;
+     @apply bg-light;
+   }
+}

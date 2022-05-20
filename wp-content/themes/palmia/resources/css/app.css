@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "_cat.css";
+@import "_actus.css";
+@import "_citation.css";
+@import "_commun.css";
+@import "_custom.css";
+@import "_page.css";
+@import "_footer.css";
+@import "_product.css";
+@import "_checkout.css";
+@import "_cart.css";

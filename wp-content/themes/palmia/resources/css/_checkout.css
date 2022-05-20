@@ -1,0 +1,77 @@
+.woocommerce form .form-row {
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.woocommerce-billing-fields__field-wrapper {
+    @apply grid;
+    grid-template-columns: 1fr 1fr;
+    p {
+        grid-column: 1/3;
+        width: 100% !important;
+    }
+    p.form-row-first {
+        grid-row: 1;
+     }
+    p.form-row-last {
+         grid-row: 1;
+        grid-column: 2;
+     }
+     p.address-field {
+          grid-row: 6;
+          grid-column: 1;
+      }
+    p.validate-state {
+         grid-row: 6;
+         grid-column: 1;
+     }
+    p.validate-phone {
+         grid-row: 8;
+         grid-column: 1;
+     }
+    p.validate-email {
+         grid-row: 8;
+         grid-column: 1;
+     }
+}
+
+.woocommerce-checkout-payment {
+    .woocommerce-error,
+    .woocommerce-info,
+    .woocommerce-message {
+        background-color: #EED697;
+        padding: 1.5rem;
+        @apply text-dark;
+        font-size: 1.4rem;
+        line-height: 1.7rem !important;
+        border: none;
+    }
+}
+
+#add_payment_method #payment,
+.woocommerce-cart #payment,
+.woocommerce-checkout #payment {
+    background-color: transparent;
+}
+
+.woocommerce table.shop_table th,
+.woocommerce table.shop_table td {
+    font-size: 1.4rem;
+}
+
+#add_payment_method #payment ul.payment_methods,
+.woocommerce-cart #payment ul.payment_methods,
+.woocommerce-checkout #payment ul.payment_methods {
+    padding: 0;
+    border: none;
+}
+
+#add_payment_method #payment div.form-row,
+.woocommerce-cart #payment div.form-row,
+.woocommerce-checkout #payment div.form-row {
+    padding: 0;
+    margin: 30px 0 0;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    @apply text-black;
+}

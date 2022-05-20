@@ -1,0 +1,23 @@
+.pl-citation {
+    min-height: 464px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    @apply flex bg-light flex-center text-center;
+}
+.pl-citation p {
+    font-size: 4rem;
+    line-height: 5rem;
+    @apply text-dark font-semibold;
+    a, strong {
+        font-weight: inherit;
+        @apply border-b border-dark;
+    }
+}
+.pl-citation .cs-content {
+    max-width: 54rem;
+}
+.pl-citation .link {
+    font-size: 2.4rem;
+    line-height: 3.9rem;
+    @apply text-dark pb-3 border-b border-dark pr-6 mx-auto;
+}
