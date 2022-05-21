@@ -1,0 +1,7 @@
+ NAME            palmiah
+ LOCATION        D:\plm
+ SERVICES        appserver, database, custom, custom_auth
+ APPSERVER URLS  https://localhost:63928
+                 http://localhost:63929
+                 http://palmiah.lndo.site/
+                 https://palmiah.lndo.site/

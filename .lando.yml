@@ -1,0 +1,33 @@
+name: palmiah
+recipe: wordpress
+config:
+  php: '7.4'
+  via: apache
+  webroot: .
+services:
+  custom:
+    type: mysql:5.7
+    portforward: true
+    authentication:
+      user: root
+      password: root
+      database: palmia
+  custom_auth:
+    type: mysql:5.7
+    authentication: mysql_native_password
+tooling:
+  mysql:
+    cmd: mysql
+    service: :host
+    options:
+      host:
+        description: The database service to use
+        default: custom
+        alias:
+          - h
+
+# This is important because it lets lando know to test against the plugin in this repo
+# DO NOT REMOVE THIS!
+plugins:
+  "@lando/mysql": ./../../
+        
