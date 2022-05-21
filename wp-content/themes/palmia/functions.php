@@ -32,9 +32,6 @@ function tailpress_setup() {
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'wp-block-styles' );
 
-	//add_theme_support( 'editor-styles' );
-	//add_editor_style( 'css/editor-style.css' );
-
     add_theme_support( 'woocommerce' );
 
 }
@@ -175,7 +172,6 @@ if(!function_exists('header_page')):
 endif;
 
 add_action('header_page_action', 'header_page', 1, 10);
-
 require get_template_directory() . '/woocommerce/wc-template-functions.php';
 require get_template_directory() . '/incs/acf.php';
 
