@@ -5,6 +5,10 @@ config:
   via: apache
   webroot: .
 services:
+  node:
+    type: node
+    globals:
+      gulp-cli: latest
   custom:
     type: mysql:5.7
     portforward: true
@@ -15,6 +19,12 @@ services:
   custom_auth:
     type: mysql:5.7
     authentication: mysql_native_password
+  pma:
+    type: phpmyadmin
+    hosts:
+      - custom
+      - custom_auth
+
 tooling:
   mysql:
     cmd: mysql
@@ -25,6 +35,14 @@ tooling:
         default: custom
         alias:
           - h
+  npm:
+    service: node
+  node:
+    service: node
+  gulp:
+    service: node
+  yarn:
+    service: node
 
 # This is important because it lets lando know to test against the plugin in this repo
 # DO NOT REMOVE THIS!

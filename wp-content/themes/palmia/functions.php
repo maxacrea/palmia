@@ -156,9 +156,17 @@ function my_acf_op_init() {
 if(!function_exists('header_page')):
     function header_page($id_page) {
 
-
-        $titre = get_field('titre_h1', $id_page) ? get_field('titre_h1', $id_page) : '';
-        $description = get_field('description_courte', $id_page) ? get_field('description_courte', $id_page) : '';
+		if(is_shop())
+        	$titre = get_field('titre_h1', $id_page) ? get_field('titre_h1', $id_page) : '';
+		
+		if(is_product_category()):
+			$titre = get_the_title();
+			$description = wc_format_content( wp_kses_post( get_queried_object()->description ));
+		else:
+			$description = get_field('description_courte', $id_page) ? get_field('description_courte', $id_page) : '';
+		endif;
+        
+		
 
         ?>
         <header class="cs-header-page">

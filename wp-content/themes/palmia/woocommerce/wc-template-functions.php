@@ -214,8 +214,51 @@ if ( ! function_exists( 'woocommerce_get_sidebar' ) ) {
 }
 
 
-require get_template_directory() . '/woocommerce/cs-single-product-func.php';
+/**
+ * Sets up the woocommerce_loop global from the passed args or from the main query.
+ *
+ * @since 3.3.0
+ * @param array $args Args to pass into the global.
+ */
+function wc_custom_setup_loop( $args = array() ) {
+	$default_args = array(
+		'loop'         => 0,
+		'columns'      => wc_get_default_products_per_row(),
+		'name'         => '',
+		'is_shortcode' => false,
+		'is_paginated' => true,
+		'is_search'    => false,
+		'is_filtered'  => false,
+		'total'        => 0,
+		'total_pages'  => 0,
+		'per_page'     => 0,
+		'current_page' => 1,
+	);
 
+	// If this is a main WC query, use global args as defaults.
+	if ( $GLOBALS['wp_query']->get( 'wc_query' ) ) {
+		$default_args = array_merge(
+			$default_args,
+			array(
+				'is_search'    => $GLOBALS['wp_query']->is_search(),
+				'is_filtered'  => is_filtered(),
+				'total'        => $GLOBALS['wp_query']->found_posts,
+				'total_pages'  => $GLOBALS['wp_query']->max_num_pages,
+				'per_page'     => $GLOBALS['wp_query']->get( 'posts_per_page' ),
+				'current_page' => max( 1, $GLOBALS['wp_query']->get( 'paged', 1 ) ),
+			)
+		);
+	}
+
+	// Merge any existing values.
+	if ( isset( $GLOBALS['woocommerce_loop'] ) ) {
+		$default_args = array_merge( $default_args, $GLOBALS['woocommerce_loop'] );
+	}
+
+	$GLOBALS['woocommerce_loop'] = wp_parse_args( $args, $default_args );
+}
+
+require get_template_directory() . '/woocommerce/cs-single-product-func.php';
 require get_template_directory() . '/woocommerce/cs-cart-functions.php';
 
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
@@ -228,6 +271,22 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating' , 10);
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price',10 );
+remove_action( 'woocommerce_before_shop_loop', 'wc_setup_loop' );
+
+
+/**
+ * Archive descriptions.
+ *
+ * @see woocommerce_taxonomy_archive_description()
+ * @see woocommerce_product_archive_description()
+ */
+remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+//add_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description', 10 );
+
+
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
 
 add_action('cs_product_header_content', 'woocommerce_template_single_title');
 add_action('cs_product_header_content', 'woocommerce_template_single_rating');
@@ -241,5 +300,5 @@ add_action( 'woocommerce_single_product_summary', 'cs_display_product_attributes
 add_action( 'cs_notice', 'cs_woocommerce_output_all_notices', 10 );
 
 add_action( 'cs_product_gallery', 'cs_product_gallery_functions', 10 );
-
+add_action( 'woocommerce_before_shop_loop', 'wc_custom_setup_loop' );
 
